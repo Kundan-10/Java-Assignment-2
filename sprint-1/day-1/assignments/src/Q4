@@ -1,0 +1,72 @@
+: Explain Generics in Java and Its Importance with example
+
+
+The Java Generics programming is introduced in J2SE 5 to deal with type-safe objects.
+It makes the code stable by detecting the bugs at compile time.
+Before generics, we can store any type of objects in the collection, i.e., non-generic.
+Now generics force the java programmer to store a specific type of objects.
+Advantage of Java Generics:
+There are mainly 3 advantages of generics.
+
+1. Type-safety:  We can hold only a single type of objects in generics. It doesn’t allow
+to store other objects.
+
+2. Type casting is not required: There is no need to downcast the object.
+List list = new ArrayList();
+
+			list.add("hello");
+			String s = (String) list.get(0);
+			List<String> list = new ArrayList<String>();
+			list.add("hello");
+			String s = list.get(0); // no cast
+
+3. Compile-Time Checking: It is checked at compile time so problem will not occur at
+runtime. The good programming strategy says it is far better to handle the problem
+at compile time than runtime.
+
+
+
+Example:
+
+
+				import java.util.*;
+				public class Main {
+				public static void main(String[] args) {
+				List list = new ArrayList();//non-generic collection
+				list.add(10); //Integer object
+				list.add("ten"); // String object
+				list.add(new Student(10,"Amit",750)); //Student object
+				}
+				}
+				//Here java compiler won't give any kind of error
+
+
+generics example:- 
+
+
+
+					//MyGen.java
+					class MyGen<T>{
+					T obj;
+					void add(T obj){
+					this.obj=obj;
+					}
+					T get(){
+					return obj;
+					}
+					}
+					//Main.java
+					public class Main {
+					public static void main(String[] args) {
+					MyGen<String> gen1 = new MyGen();
+					gen1.add("Hello");
+					
+					System.out.println(gen1.get());
+					MyGen<Integer> gen2 = new MyGen();
+					gen2.add(20);
+					System.out.println(gen2.get());
+					MyGen<Student> gen3 = new MyGen();
+					gen3.add(new Student(10,"Amit",780));
+					System.out.println(gen3.get().getName());
+}
+}

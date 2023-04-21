@@ -1,0 +1,52 @@
+Question 1: Explain difference between PriorityQueue() and LinkedList().
+
+                ** PriorityQueue() **
+
+==>  As mentioned earlier, a regular queue has a first in first out structure. But in some
+scenarios we want to process messages in a queue based on their priority and not
+based on when the message entered the queue.
+Priority queues help consumers consume the higher priority messages first followed by
+the lower priority messages.
+
+
+==>  ex 
+			private static void testStringsNaturalOrdering() {
+			Queue<String> testStringsPQ = new PriorityQueue<>();
+			
+				testStringsPQ.add("abcd");
+				testStringsPQ.add("1234");
+				testStringsPQ.add("23bc");
+				testStringsPQ.add("zzxx");
+				testStringsPQ.add("abxy");
+				
+			System.out.println("Strings Stored in Natural Ordering in a Priority Queue\n");
+			while (!testStringsPQ.isEmpty()) {
+			System.out.println(testStringsPQ.poll());
+			}
+			}
+
+			PriorityQueue is available in java.util package.
+			
+			
+			
+			
+			
+			** LinkedList() **
+
+
+In order to create a LinkedList, we need to create an object of the LinkedList class. 
+The LinkedList class consists of various constructors that allow the possible creation of the list. 
+is class:
+ 
+
+1. LinkedList(): This constructor is used to create an empty linked list. 
+If we wish to create an empty LinkedList with the name ll, then, it can be created as: 
+
+LinkedList ll = new LinkedList();  
+
+2. LinkedList(Collection C): This constructor is used to create an ordered list 
+that contains all the elements of a specified collection, as returned by the collection’s 
+iterator. If we wish to create a LinkedList with the name ll, then, it can be created as: 
+
+LinkedList ll = new LinkedList(C);
+==>   			
