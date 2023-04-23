@@ -1,0 +1,51 @@
+) What is exception handling in java, Write the hierarchy of Exception class and, Mention some
+of the predefined Exception classes at least 5, and the reason when those exception class
+object is generated in our application.
+
+                                        **  exception handling **
+                                        
+                                        
+Exception Handling in Java is one of the effective means to handle the runtime errors so that the regular flow of the application 
+can be preserved. Java Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, 
+IOException, SQLException, RemoteException, etc.
+
+Exception is an unwanted or unexpected event, which occurs during the execution of a program, i.e. at run time, that disrupts
+the normal flow of the program’s instructions. Exceptions can be caught and handled by the program. When an exception 
+occurs within a method, it creates an object. This object is called the exception object. It contains information about the 
+exception, such as the name and description of the exception and the state of the program when the exception occurred.
+
+
+1. ArithmeticException: If we divide any number by zero, there occurs an
+  ArithmeticException.
+  
+  
+  Example : int a=100/0;
+  +,-,*./
+    
+2. NullPointerException: If we have a null value in any reference variable, performing any
+  operation on that variable throws a NullPointerException.
+  
+  
+   Example:
+   String s=null;
+    System.out.println(s.length());//NullPointerException 
+    
+3. NumberFormatException: If the formatting of any variable or number is mismatched, it
+	may result into NumberFormatException. Suppose we have a string variable that has
+	characters; converting this variable into digit will cause NumberFormatException.
+
+
+	Example:
+	String s="abc";
+	int i=Integer.parseInt(s);//NumberFormatException    
+	
+
+4. ArrayIndexOutOfBoundsException: When an array exceeds to it's size, the
+	ArrayIndexOutOfBoundsException occurs. there may be other reasons to occur
+	ArrayIndexOutOfBoundsException.
+	
+	
+	Example:	
+	int a[]=new int[5];
+     a[10]=50; //ArrayIndexOutOfBoundsException
+                                         ** 
