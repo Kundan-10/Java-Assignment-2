@@ -1,0 +1,103 @@
+Q1/ What is the difference between a synchronized method and a synchronized block?
+                   ** Synchronized block **
+                   
+ If very few lines of the code requires synchronization then it is not recommended to declare entire method as
+synchronized. we have to enclose those few lines of the code in synchronized block.
+In a method, assume 10000 lines code is there, and in the middle somewhere few line need some Database
+operation like(update/delete/add) then declaring entire method as synchronized is a worst kind of programming. here
+it degrades the performance.
+The main advantage of synchronized block over synchronized method is ,it reduces the waiting time of the threads
+and improves the performance of the application.
+ 
+ 
+ There are following syntax of the synchronized block:
+1. synchronized block to get a object level lock of the same class:
+Example
+void fun1(){
+System.out.println("do something...");
+//1 thousand lines of codes are there
+synchronized(this){--//here if a thread gets the lock of current obj then it is allowed to execute
+//this block
+System.out.println("do some more thing1");
+}
+//1 thousand lines of codes r there
+}
+
+---------------------------------------------------------------------------------------------------------------
+                  ** Method Synchronization **
+
+
+Synchronized methods enables a simple strategy for preventing the thread interference and memory consistency errors.
+ If a Object is visible to more than one threads, all reads or writes to that Object’s fields are done through the synchronized method.
+
+It is not possible for two invocations for synchronized methods to interleave. If one thread is executing the synchronized
+ method, all others thread that invoke synchronized method on the same Object will have to wait until first thread is done with the Object.
+
+Example: This shows if more than one threads accessing getLine() method without synchronization.
+                   
+                   
+                   
+         // Example illustrates multiple threads are executing
+// on the same Object at same time without synchronization.
+import java.io.*;
+
+class Line
+{
+	// if multiple threads(trains) will try to
+	// access this unsynchronized method,
+	// they all will get it. So there is chance
+	// that Object's state will be corrupted.
+	public void getLine()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			System.out.println(i);
+			try
+			{
+				Thread.sleep(400);
+			}
+			catch (Exception e)
+			{
+				System.out.println(e);
+			}
+		}
+	}
+}
+
+class Train extends Thread
+{
+	// reference to Line's Object.
+	Line line;
+
+	Train(Line line)
+	{
+		this.line = line;
+	}
+
+	@Override
+	public void run()
+	{
+		line.getLine();
+	}
+}
+
+class GFG
+{
+	public static void main(String[] args)
+	{
+		// Object of Line class that is shared
+		// among the threads.
+		Line obj = new Line();
+
+		// creating the threads that are
+		// sharing the same Object.
+		Train train1 = new Train(obj);
+		Train train2 = new Train(obj);
+
+		// threads start their execution.
+		train1.start();
+		train2.start();
+	}
+}
+                   
+                   
