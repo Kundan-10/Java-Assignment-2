@@ -1,0 +1,49 @@
+Q5/- What is the difference between the sleep and wait method?
+
+
+                    **  Wait() **
+                    
+                    
+                    
+ 1)  Wait() method belongs to Object class.
+ 2)  Wait() method releases lock during Synchronization.
+ 3)  Wait() should be called only from Synchronized context.
+ 4)  Wait() is not a static method. 
+ 5)  Wait() Has Three Overloaded Methods:
+ 
+		a- wait()
+		b- wait(long timeout)
+		c- wait(long timeout, int nanos)
+  6)   public final void wait(long timeout)
+ 
+ 
+ ---------------------------------------------------------------------
+                   **  Sleep() **
+                   
+ 1) Sleep() method belongs to Thread class.
+ 2)  Sleep() method does not release the lock on object during Synchronization.
+ 3)  There is no need to call sleep() from Synchronized context.
+ 4)  Sleep() is a static method. 
+ 5)  Sleep() Has Two Overloaded Methods:
+        a) sleep(long millis)millis: milliseconds
+s       b)  leep(long millis,int nanos) nanos: Nanoseconds     
+ 
+  6)  	public static void sleep(long millis) throws Interrupted_Execption
+  
+  
+  
+  
+  example:-
+  
+  synchronized(monitor){
+	while(condition == true)
+	{
+		monitor.wait() //releases monitor lock
+	}
+
+	Thread.sleep(100); //puts current thread on Sleep
+}
+  
+  
+  
+                 
