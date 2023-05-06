@@ -1,0 +1,65 @@
+
+
+
+ ThreadPool:
+ 
+ 
+  Runnable task = () -> System.out.println(“Hello World “ );
+Thread thread= new Thread(task);
+thread.start();
+
+
+In the above example:
+1. A task is an instance of Runnable
+2. The task is passed to a new instance of Thread
+3. The Thread is launched
+4. The thread is created on demand ,by user
+5. Once the task is done, thread dies.
+6. Thread are expensive resource.
+  
+  
+  Creating a new thread for every task may creates performance and memory problems, to overcome this we
+should go for Thread pool.
+Thread pool is a pool of already created threads ready to do our tasks.
+Thread pool framework is also known as executor framework. this concept is introduced in java5.
+Thread pool related API comes in the form of java.util.concurrent package.
+Without Thread pool, if we have 10 different independent tasks are there then we need to create 10 separate
+threads.
+But using Thread pool concept ,we create a Thread pool of 5 threads and submit all the 10 tasks to this Thread
+pool.
+Here a single thread can perform multiple independent tasks. so that performance will be improved.
+  
+  
+  
+  We can create Thread Pool as follows:
+  
+ExecutorService service=Executors.newFixedThreadPool(4);
+
+
+*  Runnable *
+
+1) If a thread won't returns anything
+2) only one method public void run() 
+3) return type void 
+4) if any exception raise compulsory we need to
+ handle within try catch.
+6) Belongs to java.lang package 
+7) from java 1.0 version
+
+
+     * Callable *
+     
+     
+     
+1) If a Thread returns anything
+2) only one method public Object call() throws Exception 
+3) return type is Object
+4) not required to use try-catch
+5) Belongs to java.util.concurrent package
+6)  from java 1.5 version
+ 
+
+
+
+
+
