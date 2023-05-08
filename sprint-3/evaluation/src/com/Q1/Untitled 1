@@ -1,0 +1,66 @@
+Q1/- Explain the meaning of the deadlock in multithreaded application, when it can occur in
+multithreading applications.Write one example of deadlock.
+
+
+ans:-
+
+  Deadlock:
+  
+ 1) A lock without key is know as deadlock.
+ 2) the Sysnchronized Keyword is reasone for deadlock accors in threads.
+ 3) if two threads are waiting for each other exection (for some finite time).
+  
+  4) it is important to use if our program is running in multi -threaded envirnment where two or more threds execute simultaneously .
+  but sometimes it also cause a problem which is called Deadlock.
+  
+  below a examle:-
+  
+  public class TestDeadlock{
+    public static void main(String[] args){
+        final String res="kundan";
+        final String res2="kunal";
+        
+        Thread t1=new Thread(){
+        public void run(){
+        Sysnchronized (res){
+        System.out.println("thread 1: locked res 1");
+        
+        
+        try{
+        Thread.sleep(100);
+        }
+        catch(Exception e){}
+        Sysnchronized(res2){
+        System.out.println("thread 1 locked res 2")}
+    }
+  }
+  }
+  }
+  
+  Thread t2 =new Thread(){
+  public void run(){
+  synchronized (res 2){
+   System.out.println("thread 2 locked res ");
+   
+   try{
+        Thread.sleep(100);
+        }
+        catch(Exception e){}
+        
+        
+        Sysnchronized(res){
+        System.out.println("thread 2 locked res 1")}
+  }
+  }
+  }
+  }
+  t1.start();
+  t2.start();
+  }
+  }
+  
+  
+  
+
+  
+  
