@@ -1,0 +1,28 @@
+3/- How many types of relationships exist among tables in the
+Database?
+
+
+ Explain with some examples, and also mention how to
+establish these relationships among tables with examples.
+ i]One to one relationship:
+
+
+  a]It is used to create a relationship between two tables in which a single row of
+  first table can only be related to one and only one records of a second table.
+  b]the row of a second table can also be related to anyone row of the first table. 
+
+  EmployeeID	FirstName	LastName	Address	City	State	Zip
+EN1-10	kundan	-->giahgh-->	2306 Palisade Ave.	Union City	NJ	07087
+EN1-12	kunal-->	dfdfd	-->1255 Broadway	New York	NY	12390
+ 
+ ii] one to many relationship:
+ a]it is used to create a relationship between two tables.
+ b]Any single rows of the first table can be related to one or more rows of the second table.
+ c]but the rows of second tables can only relate to the only row in the first table.
+ d]It is also known as a many to one relationship.
+ CustomerID	CustomerName	Address	City	State	Zip
+
+
+20151 -->	kundan	-->19    samnta -->Dr	Ryebrook	-->NY	10273-9764
+20493-->	giahgh	-->396   dham Ave	-->Fountain Valley	-->CA	92708-4982
+20512-->	kunal-->	79 bhandar Pk-->	Houston	TX	-->77024-6261
